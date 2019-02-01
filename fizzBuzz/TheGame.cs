@@ -8,138 +8,131 @@ namespace fizzBuzz
 {
     public class TheGame
     {
-        public void getWelcome(string x, string y)
+        public void getWelcome(int x, int y)
         {
-            Console.WriteLine("You're playing FizzBuzz!");
+            Console.WriteLine("You're playing FizzBuzz! Please enter the first number:");
 
-            //Console.WriteLine("Multiples of three will print out \"fizz\".");
-            //Console.WriteLine("Multiples of four will print out \"razz\".");
-            //Console.WriteLine("Multiples of five will print out \"buzz\".");
-            //Console.WriteLine("Multiples of three and four will print out \"fizzrazz\".");
-            //Console.WriteLine("Multiples of three and five will print out \"fizzbuzz\".");
-            //Console.WriteLine("Multiples of four and five will print out \"razzbuzz\".");
-            //Console.WriteLine("Multiples of three, four and five will print out \"fizzrazzbuzz\".");
-
-
-            Console.WriteLine("Please enter the first number.");
-            var userInput = Console.ReadLine();
-
-            getUserInput(userInput, x, y);
-        }
-
-        public void verifyUserInput(string userInput)
-        {
-
-        }
-
-        public void getUserInput(string userInput, string x, string y)
-        {
-            var userInputAsInt = Convert.ToInt32(userInput);
-
-            if (userInputAsInt % 3 == 0)
+            for (int z = x; z <= y; z++)
             {
-                if (userInputAsInt % 4 == 0)
-                {
-                    if (userInputAsInt % 5 == 0)
-                    {                      
-                        Console.WriteLine("Correct!");
-                    }
-                }
-            }
-
-            if (userInputAsInt % 4 == 0)
-            {
-                if (userInputAsInt % 5 == 0)
-                {
-                    Console.WriteLine("Correct!");
-                }
-            }
-
-            if (userInputAsInt % 3 == 0)
-            {
-                if (userInputAsInt % 5 == 0)
-                {
-                    Console.WriteLine("Correct!");
-                }
-            }
-
-            if (userInputAsInt % 3 == 0)
-            {
-                if (userInputAsInt % 4 == 0)
-                {
-                    Console.WriteLine("Correct!");
-                }
-            }
-
-            if (userInputAsInt % 3 == 0)
-            {
-                Console.WriteLine("Correct!");
-            }
-
-            if (userInputAsInt % 4 == 0)
-            {
-                Console.WriteLine("Correct!");
-            }
-
-            if (userInputAsInt % 5 == 0)
-            {
-                Console.WriteLine("Correct!");
+                var userInput = Console.ReadLine();
+                verifyInput(userInput, z);
             }
         }
 
-        public void verifyStringIsRightForThreeFourFive(string userInput)
+        public void verifyInput(string userInput, int z)
         {
-            if (userInput == "fizzrazzbuzz")
+            if (z % 3 == 0 && z % 4 == 0 && z % 5 == 0)
             {
-                Console.WriteLine("Correct!");
+                verifyStringForThreeFourFive(userInput);
+            }
+
+            if (z % 3 == 0 && z % 4 == 0)
+            {
+                verifyStringForThreeFour(userInput);
+            }
+
+            if (z % 3 == 0 && 3 % 5 == 0)
+            {
+                verifyStringForThreeFive(userInput);
+            }
+
+            if (z % 3 == 0)
+            {
+                verifyStringForThree(userInput);
+            }
+
+            if (z % 4 == 0 && z % 5 == 0)
+            {
+                verifyStringForFourFive(userInput);
+            }
+
+            if (z % 4 == 0)
+            {
+                verifyStringForFour(userInput);
+            }
+
+            if (z % 5 == 0)
+            {
+                verifyStringForFive(userInput);
             }
         }
 
-        public void verifyStringIsRightForFourFive(string userInput)
+        public void verifyStringForThreeFourFive(string userInput)
         {
-            if (userInput == "razzbuzz")
+            if (userInput.ToLower().Equals("fizzrazzbuzz"))
             {
                 Console.WriteLine("Correct!");
             }
-        }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
+            }
 
-        public void verifyStringIsRightForThreeFour(string userInput)
+        }
+        public void verifyStringForThreeFour(string userInput)
         {
-            if (userInput == "fizzrazz")
+            if (userInput.ToLower().Equals("fizzrazz"))
             {
                 Console.WriteLine("Correct!");
             }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
+            }
         }
-
-        public void verifyStringIsRightForThreeFive(string userInput)
+        public void verifyStringForThreeFive(string userInput)
         {
-            if (userInput == "fizzbuzz")
+            if (userInput.ToLower().Equals("fizzbuzz"))
             {
                 Console.WriteLine("Correct!");
             }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
+            }
         }
-
-        public void verifyStringIsRightForFive(string userInput)
+        public void verifyStringForThree(string userInput)
         {
-            if (userInput == "buzz")
+            if (userInput.ToLower().Equals("fizz"))
             {
                 Console.WriteLine("Correct!");
             }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
+            }
         }
-
-        public void verifyStringIsRightForFour(string userInput)
+        public void verifyStringForFourFive(string userInput)
         {
-            if (userInput == "razz")
+            if (userInput.ToLower().Equals("razzbuzz"))
             {
                 Console.WriteLine("Correct!");
             }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
+            }
         }
-
-        public void verifyStringIsRightForThree(string userInput)
+        public void verifyStringForFour(string userInput)
         {
-            if (userInput == "fizz")
+            if (userInput.ToLower().Equals("razz"))
             {
                 Console.WriteLine("Correct!");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
+            }
+        }
+        public void verifyStringForFive(string userInput)
+        {
+            if (userInput.ToLower().Equals("buzz"))
+            {
+                Console.WriteLine("Correct!");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect. Please try again.");
             }
         }
     }

@@ -12,29 +12,12 @@ namespace fizzBuzz
         {
             var arguments = Environment.GetCommandLineArgs();
 
-            var testing = new TheGame();
+            var callTheGame = new TheGame();
 
-            string x = arguments[1];
-            string y = arguments[2];
+            int x = Convert.ToInt32(arguments[1]);
+            int y = Convert.ToInt32(arguments[2]);
 
-            testing.getWelcome(x, y);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            callTheGame.getWelcome(x, y);
 
             //var assignArgumentsToVariables = new AssignVariables();
 
